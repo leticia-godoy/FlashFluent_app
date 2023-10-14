@@ -3,7 +3,8 @@ require 'test_helper'
 class CardTest < ActiveSupport::TestCase
 
     def setup  
-        @card = Card.new(word: "width", description: "The architect carefully measured the width of the bedroom", points: "15")
+        @user = User.create!(username: "test", email:"email@test.com")
+        @card = @user.cards.build(word: "width", description: "The architect carefully measured the width of the bedroom", points: "15")
     end
 
     test "card should be valid" do
