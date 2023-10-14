@@ -1,3 +1,62 @@
-
+$navbar-default-bg: #FF7103;
+// cor secundaria #28BEC6
+// cor terciária #100D0F
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+@font-face{
+    font-family: "openD";
+    src: font-url("OpenD-Regular.otf");
+}
+@font-face{
+    font-family: "openD-bold";
+    src: font-url("OpenD-Bold.otf");
+}
+@font-face{
+    font-family: "openD-italic";
+    src: font-url("OpenD-Italic.otf");
+}
+@font-face{
+    font-family: "openD-bolditalic";
+    src: font-url("OpenD-BoldItalic.otf");
+}
+
+.center{
+    text-align: center;
+}
+#logo{
+    float: left;
+    font-size: 1.7em;
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: -1px;
+    font-weight: bold;
+}
+
+.jumbotron {
+    width: 100%;
+}
+
+#logo:hover{
+    color:#fff;
+}
+
+.navbar-brand{
+    font-family: "openD-bold", sans-serif;
+}
+body{
+    font-family: "openD", sans-serif;
+}
+.jumbotron h1,h2{
+    font-family: "openD-bold", sans-serif;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.btn-xlarge{
+    background-color: #FF7103;
+}
+.btn-xlarge:hover{
+    color:#100D0F;
+    text-decoration: none;
+}
