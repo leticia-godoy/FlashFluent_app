@@ -1,0 +1,20 @@
+<h1 align="center">FlashCards</h1>
+<hr />
+<% @cards.each do |card|%>
+    <div class="row">
+        <div class="col-md-2">
+            <section class="center">
+            
+            </section>
+        </div>
+        <div class="col-md-8 well">
+            <h4><%= card.word %></h4>
+            <p><%= truncate(card.description, length: 150) %></p>
+            <p><%= card.points %></p>
+            <p>
+                <span class="quiet"><small>Created <%= time_ago_in_words(card.created_at)%> ago</small></span>
+            </p>
+        </div>
+    </div>
+    
+<% end %>
