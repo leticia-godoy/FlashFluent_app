@@ -8,7 +8,7 @@
             </section>
         </div>
         <div class="col-md-8 well">
-            <h4><%= link_to card.word, card_path(card) %></h4>
+            <h4><%= link_to card.word.capitalize, card_path(card) %></h4>
             <p><%= truncate(card.description, length: 150) %></p>
             <p><%= card.points %></p>
             <p>

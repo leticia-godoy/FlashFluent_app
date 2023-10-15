@@ -1,4 +1,4 @@
-$navbar-default-bg: #FF7103;
+$navbar-default-bg: #6E9ABC;
 // cor secundaria #28BEC6
 // cor terciária #100D0F
 @import "bootstrap-sprockets";
@@ -54,7 +54,7 @@ body{
 }
 
 .btn-xlarge{
-    background-color: #FF7103;
+    background-color: #6E9ABC;
 }
 .btn-xlarge:hover{
     color:#100D0F;
@@ -67,4 +67,8 @@ body{
 
 .user_info{
     margin-top: 20px;
+}
+
+.colormatch a{
+    color: #6E9ABC;
 }
