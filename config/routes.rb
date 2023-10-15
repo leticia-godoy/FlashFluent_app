@@ -6,5 +6,6 @@ Rails.application.routes.draw do
   get 'pages/home', to: 'pages#home'
 
   get '/cards', to: 'cards#index'
+  get '/cards/:id', to: 'cards#show', as: 'card'
 
 end
