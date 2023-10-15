@@ -16,7 +16,7 @@ class CardsTest < ActionDispatch::IntegrationTest
   test "should get cards list" do
     get cards_url
     assert_template 'cards/index'
-    assert_match @card.word, response.body
-    assert_match @card2.word, response.body
+    assert_select "a[href=?]", card_path(@card), text: @card.word
+    assert_select "a[href=?]", card_path(@card2), text: @card2.word
   end
 end
