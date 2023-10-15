@@ -6,4 +6,5 @@ Rails.application.routes.draw do
   get 'pages/home', to: 'pages#home'
 
   resources :cards
+  get '/cards/:id(.:format)', to: 'cards#destroy'
 end
