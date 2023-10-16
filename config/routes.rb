@@ -7,4 +7,7 @@ Rails.application.routes.draw do
 
   resources :cards
   get '/cards/:id(.:format)', to: 'cards#destroy'
+
+  get '/signup', to: 'users#new'
+  resources :users, except: [:new]  
 end
