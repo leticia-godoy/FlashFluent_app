@@ -15,7 +15,7 @@ class CardsController < ApplicationController
 
     def create 
         @card = Card.new(card_params)
-        @card.user = User.last
+        @card.user = current_user
         if @card.save 
             flash[:success]= "FlashCard criado com sucesso!"
             redirect_to card_path(@card)
