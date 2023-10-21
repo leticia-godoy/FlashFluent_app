@@ -9,6 +9,8 @@
                     <li><%= link_to gravatar_for(user), user_path(user)%></li>
                     <li class="user-title"><%=link_to user.username.capitalize, user_path(user)%></li>
                     <li><small><%= pluralize(user.cards.count, "card") if user.cards%></small></li>
+                    <li><%= link_to "Deletar usuário", user_path(user), data: {turbo_method: :delete ,
+                            turbo_confirm: "Tem certeza que deseja deletar este usuário e suas dependências?"}%></li>
                 </div>
             </div>
         </ul>
