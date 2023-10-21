@@ -12,7 +12,7 @@
             <%= link_to gravatar_for(@card.user), cards_path %>
         </p>
         <p class="center">
-            <small>Instrutor <%=@card.user.username.capitalize%></small>
+            <small>Instrutor(a) <%=@card.user.username.capitalize%></small>
             <div class="pull-right"><%= time_ago_in_words(@card.created_at)%> ago.</div>
         </p>
     </div>

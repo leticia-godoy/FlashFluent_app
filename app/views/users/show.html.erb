@@ -5,6 +5,13 @@
         <%= gravatar_for @user, size: 150%>
     </div>
 </div>
+<div align="center" >
+    <h4 >FlashCards do(a) <%=@user.username%></h4><br>
+    <%= will_paginate @user_cards, previous_label: '<- Anterior', next_label: 'Próxima ->'%>
+</div>
 
-<h4 align="center">FlashCards do(a) <%=@user.username%></h4><br>
-<%= render 'cards/card', obj: @user.cards%>
+<%= render 'cards/card', obj: @user_cards%>
+
+<div align="center">
+    <%= will_paginate @user_cards, previous_label: '<- Anterior', next_label: 'Próxima ->'%>
+</div>

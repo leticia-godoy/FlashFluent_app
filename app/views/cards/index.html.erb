@@ -1,3 +1,11 @@
 <%=render 'shared/page_title', title: "FlashCards"%>
 
+<div align="center">
+    <%= will_paginate @cards, previous_label: '<- Anterior', next_label: 'Próxima ->' %>
+</div>
+
 <%= render 'card', obj: @cards %>
+
+<div align="center">
+    <%= will_paginate @cards, previous_label: '<- Anterior', next_label: 'Próxima ->' %>
+</div>

@@ -2,7 +2,7 @@ class CardsController < ApplicationController
 
     before_action :set_card, only: [:show, :edit, :update]
     def index
-        @cards = Card.all
+        @cards = Card.paginate(page: params[:page], per_page: 5)
     end
 
     def show 
