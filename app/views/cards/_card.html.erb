@@ -1,0 +1,18 @@
+<% obj.each do |card|%>
+    <div class="row">
+        <div class="col-md-2">
+            <section class="user_info center">
+                <%= gravatar_for(card.user, size: 120)%>
+            </section>
+        </div>
+        <div class="col-md-8 well">
+            <h4><%= link_to card.word.capitalize, card_path(card) %></h4>
+            <p><%= truncate(card.description, length: 150) %></p>
+            <p><%= card.points %></p>
+            <p>
+                <span class="quiet"><small>Created <%= time_ago_in_words(card.created_at)%> ago</small></span>
+            </p>
+        </div>
+    </div>
+    
+<% end %>
