@@ -1,6 +1,9 @@
 class CardsController < ApplicationController
 
-    before_action :set_card, only: [:show, :edit, :update]
+    before_action :set_card, only: [:show, :edit, :update, :destroy]
+    before_action :require_user, except: [:index, :show]
+    before_action :require_same_user, only: [:edit, :update, :destroy]
+
     def index
         @cards = Card.paginate(page: params[:page], per_page: 5)
     end
@@ -52,5 +55,12 @@ class CardsController < ApplicationController
 
     def card_params
         params.require(:card).permit(:word, :description, :points)
+    end
+
+    def require_same_user
+        if current_user != @card.user
+            flash[:danger] = "Você só pode editar/deletar os seus flashCards"
+            redirect_to cards_path
+        end
     end
 end

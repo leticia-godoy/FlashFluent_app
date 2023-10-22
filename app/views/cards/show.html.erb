@@ -17,11 +17,13 @@
         </p>
     </div>
     <div class="card-actions">
-        <%= link_to "Editar card", edit_card_path(@card), class:"btn btn-xs btn-warning"%>
-        <%= link_to "Deletar card", card_path(@card),
-                                    data: { turbo_method: :delete,
-                                        turbo_confirm: "Tem certeza que deseja deletar o Card?"},
-                                    class:"btn btn-xs btn-danger"%>
+        <% if logged_in? && current_user == @card.user %>
+            <%= link_to "Editar card", edit_card_path(@card), class:"btn btn-xs btn-warning"%>
+            <%= link_to "Deletar card", card_path(@card),
+                                        data: { turbo_method: :delete,
+                                            turbo_confirm: "Tem certeza que deseja deletar o Card?"},
+                                        class:"btn btn-xs btn-danger"%>
+        <% end %>
         <%= link_to "Voltar aos cards", cards_path, class: "btn btn-xs btn-light"%>
     </div>
 </div>
