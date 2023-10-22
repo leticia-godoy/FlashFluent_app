@@ -4,7 +4,7 @@
     <hr />
     <%= simple_format (@card.description)%>
     <hr />
-    <div class="pull-right"> 
+    <div class="pull-right">
         <p class="center">
             <em>Criado por: </em>
         </p>
@@ -12,14 +12,19 @@
             <%= link_to gravatar_for(@card.user), cards_path %>
         </p>
         <p class="center">
-            <small>Instrutor(a) <%=@card.user.username.capitalize%></small>
-            <div class="pull-right"><%= time_ago_in_words(@card.created_at)%> ago.</div>
+            <% if @card.user.instructor? %>
+            <small>Instrutor(a) <%= @card.user.username.capitalize %></small>
+            <% else %>
+            <small><%= @card.user.username.capitalize %></small>
+            <% end %>
+            <div class="pull-right"><%= time_ago_in_words(@card.created_at) %> ago.</div>
         </p>
+
     </div>
     <div class="card-actions">
         <% if logged_in? && current_user == @card.user %>
-            <%= link_to "Editar card", edit_card_path(@card), class:"btn btn-xs btn-warning"%>
-            <%= link_to "Deletar card", card_path(@card),
+        <%= link_to "Editar card", edit_card_path(@card), class:"btn btn-xs btn-warning"%>
+        <%= link_to "Deletar card", card_path(@card),
                                         data: { turbo_method: :delete,
                                             turbo_confirm: "Tem certeza que deseja deletar o Card?"},
                                         class:"btn btn-xs btn-danger"%>
@@ -27,4 +32,3 @@
         <%= link_to "Voltar aos cards", cards_path, class: "btn btn-xs btn-light"%>
     </div>
 </div>
-
