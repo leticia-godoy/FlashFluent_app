@@ -2,6 +2,7 @@ class UsersController < ApplicationController
 
     before_action :set_user, only: [:show, :edit, :update, :destroy]
     before_action :require_same_user, only: [:edit, :update, :destroy]
+    before_action :require_instructor, only: [:destroy]
 
     def index
         @users = User.paginate(page: params[:page], per_page: 5)
@@ -59,6 +60,13 @@ class UsersController < ApplicationController
         if current_user != @user
             flash[:danger] = "Você só pode editar/deletar a sua conta"
             redirect_to users_path
+        end
+    end
+
+    def require_instructor
+        if logged_in? && !current_user.instructor?
+            flash[:danger] = "Apenas instrutores podem realizar esta ação"
+            redirect_to root_path
         end
     end
 end
