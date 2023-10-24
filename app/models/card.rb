@@ -8,4 +8,5 @@ class Card < ApplicationRecord
     default_scope -> { order(updated_at: :desc)}
     has_many :card_topics
     has_many :topics, through: :card_topics
+    has_many :coments, dependent: :destroy
 end
