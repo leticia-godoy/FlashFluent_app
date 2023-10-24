@@ -10,7 +10,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_10_22_180041) do
+ActiveRecord::Schema[7.0].define(version: 2023_10_24_031603) do
+  create_table "card_topics", force: :cascade do |t|
+    t.integer "card_id"
+    t.integer "topic_id"
+  end
+
   create_table "cards", force: :cascade do |t|
     t.string "word"
     t.text "description"
@@ -18,6 +23,10 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_22_180041) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "user_id"
+  end
+
+  create_table "topics", force: :cascade do |t|
+    t.string "name"
   end
 
   create_table "users", force: :cascade do |t|

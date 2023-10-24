@@ -37,7 +37,7 @@ class CardsController < ApplicationController
             flash[:success] = "FlashCard atualizado com sucesso!"
             redirect_to card_path(@card)
         else
-            render 'edit'
+            format.turbo_stream { render :edit }
         end
     end
 
