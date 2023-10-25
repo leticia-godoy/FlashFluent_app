@@ -1,0 +1,27 @@
+<%= render 'shared/errors', obj: @topic %>
+
+<div class="row">
+    <div class="col-md-12">
+        <%= form_for(@topic, :html => {class: "form-horizontal", role: "form"}) do |f| %>
+        <div class="form-group">
+            <div class="control-label col-md-2">
+                Tópico
+            </div>
+            <div class="col-md-8">
+                <%= f.text_field :name, class: "form-control", placeholder: "Nome do tópico", 
+                    autofocus: true %>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <%= f.submit(@topic.new_record? ? "Adicionar" : "Editar", 
+                            class: "btn btn-primary btn-lg btn-xlarge") %>
+            </div>
+        </div>
+        <% end %>
+        <div class="col-md-4 col-md-offset-4 colormatch">
+            [ <%= link_to "Voltar à listagem de tópicos", topics_path %> ]
+        </div>
+    </div>
+</div>

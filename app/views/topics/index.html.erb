@@ -9,7 +9,7 @@
                 <li class="user-title"><%=link_to tpc.name.capitalize, topic_path(tpc)%></li>
                 <li><small><%= pluralize(tpc.cards.count, "card") if tpc.cards%></small></li>
                 <% if logged_in? && current_user.instructor? %>
-                <li><%= link_to "Editar tópico", topic_path(tpc)%></li>
+                <li><%= link_to "Editar tópico", edit_topic_path(tpc)%></li>
                 <% end %>
             </div>
         </div>
