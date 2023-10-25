@@ -1,0 +1,16 @@
+<%= render 'shared/page_title', title: "#{@topic.name}"%>
+
+<%if @topic.cards.count != 0%>
+    <div align="center" >
+        <h4 >FlashCards contendo: <%=@topic.name%></h4><br>
+        <%= will_paginate @topic_cards, previous_label: '<- Anterior', next_label: 'Próxima ->'%>
+    </div>
+
+    <%= render 'cards/card', obj: @topic_cards%>
+
+    <div align="center">
+        <%= will_paginate @topic_cards, previous_label: '<- Anterior', next_label: 'Próxima ->'%>
+    </div>
+<% else %>
+    <h4 align="center">Sem cards associados à algum tópico</h4>
+<% end %>

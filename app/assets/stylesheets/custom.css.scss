@@ -47,6 +47,9 @@ $navbar-default-bg: #6E9ABC;
 body{
     font-family: Arial, Helvetica, sans-serif;
 }
+.container{
+    min-height: 80vh;
+}
 .jumbotron h1,h2{
     font-family: Arial, Helvetica, sans-serif;
     text-align: center;
@@ -80,4 +83,7 @@ body{
 .user_title {
     color: #6E9ABC;
     font-size: 1.25em;
+}
+.badge{
+    background-color: #A5B1B4;
 }

@@ -9,7 +9,7 @@
             <em>Criado por: </em>
         </p>
         <p class="center">
-            <%= link_to gravatar_for(@card.user), cards_path %>
+            <%= link_to gravatar_for(@card.user), user_path(@card.user) %>
         </p>
         <p class="center">
             <% if @card.user.instructor? %>
