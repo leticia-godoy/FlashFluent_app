@@ -4,6 +4,9 @@
     <hr />
     <%= simple_format (@card.description)%>
     <hr />
+    <% if @card.topics.any?%>
+    <p>Tópicos relacionados: <%= render  @card.topics%></p> <br>
+    <% end %>
     <div class="pull-right">
         <p class="center">
             <em>Criado por: </em>
@@ -32,3 +35,20 @@
         <%= link_to "Voltar aos cards", cards_path, class: "btn btn-xs btn-light"%>
     </div>
 </div>
+
+<% if @card.coments != 0 %>
+<div class="row">
+    <div class="col-md-8 col-md-offset-2">
+        <h3>Comentários: </h3>
+        <div id="messages">
+            <%= render partial: 'comments/comments', object: @coments %>
+        </div>
+    </div>
+</div>
+<% else %>
+<div class="row">
+    <div class="col-md-8 col-md-offset-2">
+        <h3>No Comments Yet!</h3>
+    </div>
+</div>
+<% end %>

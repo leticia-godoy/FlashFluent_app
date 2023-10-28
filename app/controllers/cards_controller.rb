@@ -10,7 +10,7 @@ class CardsController < ApplicationController
     end
 
     def show 
-    
+        @coments = @card.coments.paginate(page: params[:page], per_page: 5)
     end
 
     def new 
@@ -55,7 +55,7 @@ class CardsController < ApplicationController
     end
 
     def card_params
-        params.require(:card).permit(:word, :description, :points)
+        params.require(:card).permit(:word, :description, :points, topic_ids: [])
     end
 
     def require_same_user

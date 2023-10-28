@@ -1,0 +1,7 @@
+
+<% @coments.each do |comment| %>
+    <%= render(partial: 'comments/comment', object: comment) %>
+<% end %>
+<div align="center">
+    <%= will_paginate @coments, previous_label: '<- Anterior', next_label: 'Próxima ->' %>
+</div>

@@ -35,6 +35,9 @@ $navbar-default-bg: #6E9ABC;
 
 .jumbotron {
     width: 100%;
+    h1 {
+        font-family: "openD-bold", sans-serif;
+    }
 }
 
 #logo:hover{
@@ -51,7 +54,6 @@ body{
     min-height: 80vh;
 }
 .jumbotron h1,h2{
-    font-family: Arial, Helvetica, sans-serif;
     text-align: center;
     margin-bottom: 30px;
 }
@@ -87,3 +89,11 @@ body{
 .badge{
     background-color: #A5B1B4;
 }
+.form-horizontal{
+    .checkbox{
+        min-height: 20px;
+    }
+}
+.input_checkbox input {
+    width: auto !important;
+}  
