@@ -10,6 +10,7 @@ class CardsController < ApplicationController
     end
 
     def show 
+        @coment = Coment.new
         @coments = @card.coments.paginate(page: params[:page], per_page: 5)
     end
 

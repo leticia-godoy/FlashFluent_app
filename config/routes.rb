@@ -5,7 +5,10 @@ Rails.application.routes.draw do
 
   get 'pages/home', to: 'pages#home'
 
-  resources :cards
+  resources :cards do
+    resources :coments, only: [:create]
+  end
+
   get '/cards/:id(.:format)', to: 'cards#destroy'
 
   get '/signup', to: 'users#new'
