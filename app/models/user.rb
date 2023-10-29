@@ -10,4 +10,6 @@ class User < ApplicationRecord
     has_secure_password
     validates :password, presence: true, length: { minimum: 5 }, allow_nil: true
     has_many :coments, dependent: :destroy
+    has_many :likes, dependent: :destroy
+    has_many :liked_cards, through: :likes, source: :card
 end

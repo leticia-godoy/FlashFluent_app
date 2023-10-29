@@ -1,21 +1,33 @@
-<%= render 'shared/page_title', title: "#{@user.username}"%>
+<%= render 'shared/page_title', title: "#{@user.username}" %>
 
 <div class="row">
-    <div class= "col-md-4 col-md-offset-4 center">
-        <%= gravatar_for @user, size: 150%>
+    <div class="col-md-4 col-md-offset-4 center">
+        <%= gravatar_for @user, size: 150 %>
     </div>
 </div>
-<%if @user.cards.count != 0%>
-    <div align="center" >
-        <h4 >FlashCards do(a) <%=@user.username%></h4><br>
-        <%= will_paginate @user_cards, previous_label: '<- Anterior', next_label: 'Próxima ->'%>
+
+<% if @user.instructor? && @user.cards.count != 0 %>
+    <div align="center">
+        <h4>FlashCards do(a) <%= @user.username %></h4><br>
+        <%= will_paginate @user_cards, previous_label: '<- Anterior', next_label: 'Próxima ->' %>
     </div>
 
-    <%= render 'cards/card', obj: @user_cards%>
+    <%= render 'cards/card', obj: @user_cards %>
 
     <div align="center">
-        <%= will_paginate @user_cards, previous_label: '<- Anterior', next_label: 'Próxima ->'%>
+        <%= will_paginate @user_cards, previous_label: '<- Anterior', next_label: 'Próxima ->' %>
+    </div>
+<% elsif !@user.instructor? && @user.liked_cards.count != 0 %>
+    <div align="center">
+        <h4>FlashCards curtidos por <%= @user.username %></h4><br>
+        <%= will_paginate @user_liked_cards, previous_label: '<- Anterior', next_label: 'Próxima ->' %>
+    </div>
+
+    <%= render 'cards/card', obj: @user.liked_cards %>
+
+    <div align="center">
+        <%= will_paginate @user_liked_cards, previous_label: '<- Anterior', next_label: 'Próxima ->' %>
     </div>
 <% else %>
-    <h4 align="center">Usuário ainda não postou cards</h4>
+    <h4 align="center">Usuário ainda não tem cards</h4>
 <% end %>

@@ -23,8 +23,9 @@ class UsersController < ApplicationController
         end
     end
 
-    def show 
+    def show
         @user_cards = @user.cards.paginate(page: params[:page], per_page: 5)
+        @user_liked_cards = @user.liked_cards.paginate(page: params[:page], per_page: 5)
     end
 
     def edit 

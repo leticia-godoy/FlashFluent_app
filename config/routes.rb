@@ -7,6 +7,10 @@ Rails.application.routes.draw do
 
   resources :cards do
     resources :coments, only: [:create]
+    member do 
+      post 'like'
+      get 'like', to: 'cards#like'
+    end
   end
 
   get '/cards/:id(.:format)', to: 'cards#destroy'

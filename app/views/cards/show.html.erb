@@ -37,8 +37,24 @@
 </div>
 
 <% if logged_in? %>
+    <div class="row liking">
+        <div class="row col-md-8 col-md-offset-2">
+            <% if @card.liked_by?(current_user) %>
+                <%= link_to like_card_path(@card, like: false), method: :post do %>
+                    <i class="glyphicon glyphicon-heart"></i>
+                <% end %>
+            <% else %>
+                <%= link_to like_card_path(@card, like: true), method: :post do %>
+                    <i class="glyphicon glyphicon-heart-empty"></i>
+                <% end %>
+            <% end %>
+        </div>
+    </div>
+
     <div class="row">
+
         <div class="col-md-8 col-md-offset-2">
+            <hr />
             <%= form_for([@card , @coment], :html => {class: "form-horizontal", role: "form"}) do |f| %>
             <div class="form-group">
                 <div class="control-label col-md-2">
@@ -46,7 +62,7 @@
                 </div>
                 <div class="col-md-8">
                     <%= f.text_area :description, rows: 1, class: "form-control", 
-                                        placeholder: "Digite seu comentário" %>
+                                                placeholder: "Digite seu comentário" %>
                 </div>
             </div>
 
@@ -62,18 +78,18 @@
 <% end %>
 
 <% if @card.coments != 0 %>
-<div class="row">
-    <div class="col-md-8 col-md-offset-2">
-        <h3>Comentários: </h3>
-        <div id="messages">
-            <%= render partial: 'comments/comments', object: @coments %>
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+            <h3>Comentários: </h3>
+            <div id="messages">
+                <%= render partial: 'comments/comments', object: @coments %>
+            </div>
         </div>
     </div>
-</div>
 <% else %>
-<div class="row">
-    <div class="col-md-8 col-md-offset-2">
-        <h3>No Comments Yet!</h3>
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+            <h3>No Comments Yet!</h3>
+        </div>
     </div>
-</div>
 <% end %>
