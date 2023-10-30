@@ -145,6 +145,7 @@ GEM
       mini_portile2 (~> 2.8.2)
       racc (~> 1.4)
     pg (1.5.4)
+    popper_js (2.11.8)
     psych (5.1.0)
       stringio
     public_suffix (5.0.3)
@@ -260,6 +261,7 @@ DEPENDENCIES
   jbuilder
   jquery-rails
   pg
+  popper_js
   puma (~> 5.0)
   rails (~> 7.0.3)
   rails-controller-testing
