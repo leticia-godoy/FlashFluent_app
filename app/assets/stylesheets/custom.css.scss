@@ -21,6 +21,9 @@ $navbar-default-bg: #6E9ABC;
     src: font-url("OpenD-BoldItalic.otf");
 }
 
+.navbar-default .navbar-nav > li > a{
+    color: #100D0F;
+}
 .center{
     text-align: center;
 }
@@ -110,6 +113,12 @@ body{
 .input_checkbox input {
     width: auto !important;
 }  
+
+.card-desc{
+    display: flow-root;
+    line-height: 1.9;
+    font-size: initial;
+}
 
 .liking{
 
